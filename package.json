@@ -2,7 +2,7 @@
   "name": "mact6340projectals",
   "version": "1.0.0",
   "description": "A personal NFT mint for an artist",
-  "type": "commonjs",
+  "type": "module",
   "homepage": "https://github.com/analusilvera14/MACT6340ProjectALS#readme",
   "bugs": {
     "url": "https://github.com/analusilvera14/MACT6340ProjectALS/issues"
@@ -15,7 +15,9 @@
   "author": "Ana L. Silvera",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon app.js",
+    "start": "node app.js"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"

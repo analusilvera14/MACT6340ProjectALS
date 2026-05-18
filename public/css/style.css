@@ -1,10 +1,190 @@
-html {
-    box-sizing: border-box;
-
+/* base styles for the whole page */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F4F7FB;
+  color: #2C3E50;
+  margin: 0;
+  /* leaves room at the top so content doesn't hide under the fixed navbar */
+  padding-top: 70px;
 }
 
-*, *:before,
-*:after {
-    box-sizing: inherit;
+h1, h2, h3 {
+  font-family: 'Archivo Black', sans-serif;
+  letter-spacing: 1px;
+}
+
+.section-title {
+  color: #5A7BB0;
+  font-size: 2.5rem;
+}
+
+/* top navigation bar */
+.custom-navbar {
+  background-color: #5A7BB0;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.custom-navbar .nav-link {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  color: #FFFFFF !important;
+  margin: 0 0.4rem;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #D5E0F0 !important;
+}
+
+.btn-wallet {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  border-radius: 8px;
+  border-color: #FFFFFF;
+}
+
+/* hero / splash area */
+.hero-section {
+  min-height: 80vh;
+  /* soft diagonal gradient from light blue to light purple-blue */
+  background: linear-gradient(135deg, #B8DCE8 0%, #C5C5E8 100%);
+  padding: 4rem 0;
+}
+
+.hero-title {
+  font-size: 4rem;
+  color: #3A5A85;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  color: #5A7BB0;
+  font-weight: 300;
+}
+
+/* alternating section backgrounds */
+.section-block {
+  background-color: #F4F7FB;
+}
+
+.section-block.alt {
+  background-color: #EDE8F8;
+}
+
+/* project cards (used in featured and selected projects) */
+.project-card {
+  background: #FFFFFF;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(91, 123, 176, 0.15);
+  /* smooth lift effect when you hover */
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card .card-img-top {
+  width: 100%;
+  height: 280px;
+  /* keeps the image filling the box without stretching */
+  object-fit: cover;
+}
+
+.project-card .card-body {
+  padding: 1.5rem;
+}
+
+.project-card .card-title {
+  font-size: 1.4rem;
+  color: #3A5A85;
+}
+
+.project-card .card-text {
+  font-family: 'Raleway', sans-serif;
+  color: #6B8FB8;
+}
+
+/* circular photo in the about section */
+.about-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #FFFFFF;
+  box-shadow: 0 4px 20px rgba(91, 123, 176, 0.2);
+}
+
+.artist-name {
+  color: #3A5A85;
+}
+
+#about p {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.7;
+  color: #2C3E50;
+}
+
+/* my main button style (rounded blue pill) */
+.btn-custom {
+  background-color: #6B8FB8;
+  color: #FFFFFF;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6rem 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #4F6E96;
+  color: #FFFFFF;
+}
+
+/* smaller secondary button (light purple-blue) */
+.btn-custom-sm {
+  background-color: #C5C5E8;
+  color: #3A5A85;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom-sm:hover {
+  background-color: #A0A0DC;
+  color: #FFFFFF;
+}
+
+/* footer at the bottom of the page */
+.footer-section {
+  background-color: #3A5A85;
+  color: #FFFFFF;
+  font-family: 'Raleway', sans-serif;
+}
+
+.footer-quote {
+  color: #D5E0F0;
+}
+
+/* responsive adjustments for phones and small screens */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .about-image {
+    width: 180px;
+    height: 180px;
+  }
 }
 
