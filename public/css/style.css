@@ -188,3 +188,38 @@ h1, h2, h3 {
   }
 }
 
+/* project profile page */
+.profile-image {
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(91, 123, 176, 0.15);
+  width: 100%;
+}
+
+.project-lead {
+  font-family: 'Raleway', sans-serif;
+  color: #6B8FB8;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.project-divider {
+  border-color: #C5C5E8;
+  opacity: 0.6;
+}
+
+.stat-label {
+  font-family: 'Raleway', sans-serif;
+  color: #5A7BB0;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.3rem;
+}
+
+.stat-value {
+  color: #3A5A85;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+

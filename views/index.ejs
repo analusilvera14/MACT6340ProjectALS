@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!-- makes the page resize properly on phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <title>Ana L. Silvera | Personal NFT Mint</title>
+    <meta name="author" content="Ana L. Silvera">
+    <meta name="description" content="A personal NFT mint for an artist.">
+
+    <!-- bootstrap framework for layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- google fonts (montserrat, raleway, archivo black) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- my custom styles -->
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+
+<header>
+  <%- include('header') %>
+</header>
+
+    <!-- hero / splash section at the top of the page -->
+    <section class="hero-section d-flex align-items-center justify-content-center text-center">
+      <div class="container">
+        <h1 class="hero-title">ana l. silvera</h1>
+        <p class="hero-subtitle">a personal nft mint</p>
+      </div>
+    </section>
+
+    <!-- featured project -->
+ <section class="container my-5">
+  <h2 class="text-center mb-4">featured project</h2>
+
+  <div class="card mx-auto fadein" style="max-width: 900px;">
+    <div class="row g-0">
+
+      <div class="col-md-6">
+        <img src="<%= featured.img_url %>"
+             class="img-fluid rounded-start"
+             alt="An image of the <%= featured.project_name %> project">
+      </div>
+
+      <div class="col-md-6">
+        <div class="card-body p-4">
+          <h3 class="card-title"><%= featured.project_name %></h3>
+          <p class="card-text"><%= featured.project_description %></p>
+
+          <ul class="list-unstyled mt-3">
+            <li><strong>Quantity:</strong> <%= featured.quantity %></li>
+            <li><strong>Price:</strong> <%= featured.price_eth %> ETH</li>
+            <li><strong>Royalty:</strong> <%= featured.royalty_percent %>%</li>
+          </ul>
+
+          <a href="/project/<%= featured.id %>" class="btn btn-primary mt-2">View project</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- about me -->
+    <section id="about" class="section-block alt py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-5">about me</h2>
+        <div class="row align-items-center">
+          <div class="col-md-5 text-center mb-4 mb-md-0">
+            <img src="./images/ski girl.jpg" alt="Ana L. Silvera" class="about-image">
+            <h3 class="mt-3 artist-name">ana l. silvera</h3>
+            <p class="text-muted">artist & creator</p>
+          </div>
+          <div class="col-md-7">
+            <p>Hi, i'm Ana Lucia Silvera. I'm a digital artist based in Dallas, TX, exploring the intersection of creative coding and generative art.</p>
+            <p>my work focuses on the relationship between code and visual storytelling. </p>
+            <p>Welcome to my personal MINT!.</p>
+            <a href="/projects" class="btn btn-custom mt-3">view all projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- selected projects (two cards) -->
+    <section id="projects" class="section-block py-5">
+   <section class="container my-4">
+  <h2>Projects</h2>
+  <div class="row">
+    <% projectArray.forEach(p => { %>
+      <div class="col-md-4">
+        <%- include('projectCard', {
+          image: p.img_url,
+          name: p.project_name,
+          ident: p.id
+        }) %>
+      </div>
+    <% }) %>
+  </div>
+</section>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer-section py-5">
+    <%- include('footer') %>
+    </footer>
+
+    <!-- bootstrap javascript (needed for the hamburger menu to work) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+
+

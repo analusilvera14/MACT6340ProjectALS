@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <title><%= project.project_name %> | Ana L. Silvera</title>
+    <meta name="author" content="Ana L. Silvera">
+    <meta name="description" content="Project profile page.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@300;400;500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+
+  <body>
+    <%- include('header') %>
+
+    <section class="section-block py-5">
+      <div class="container">
+
+        <a href="/projects" class="btn-custom-sm d-inline-block text-decoration-none mb-4">&larr; Back to projects</a>
+
+        <div class="row align-items-center g-5">
+
+          <div class="col-md-6">
+            <img src="<%= project.img_url %>"
+                 class="profile-image img-fluid"
+                 alt="An image of the <%= project.project_name %> project">
+          </div>
+
+          <div class="col-md-6">
+            <h1 class="section-title mb-3"><%= project.project_name %></h1>
+            <p class="project-lead"><%= project.project_description %></p>
+
+            <hr class="project-divider">
+
+            <div class="row mt-4">
+              <div class="col-6 mb-3">
+                <p class="stat-label">Quantity</p>
+                <p class="stat-value"><%= project.quantity %></p>
+              </div>
+              <div class="col-6 mb-3">
+                <p class="stat-label">Price</p>
+                <p class="stat-value"><%= project.price_eth %> ETH</p>
+              </div>
+              <div class="col-6 mb-3">
+                <p class="stat-label">Royalty</p>
+                <p class="stat-value"><%= project.royalty_percent %>%</p>
+              </div>
+              <div class="col-6 mb-3">
+                <p class="stat-label">Release date</p>
+                <p class="stat-value"><%= new Date(project.open_date_gmt).toLocaleDateString() %></p>
+              </div>
+            </div>
+
+            <button class="btn-custom mt-4">Mint this NFT</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <%- include('footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
