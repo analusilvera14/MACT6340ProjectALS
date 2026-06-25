@@ -2,34 +2,21 @@ import mysql from "mysql2";
 import dotenv from "dotenv";
 dotenv.config();
 
-let pool;
+const cstring = process.env.MYSQL_CSTRING;
 
+// Pool is created once when this module loads.
+// SSL is forced on because DigitalOcean managed MySQL requires it.
+const pool = mysql.createPool({
+  uri: cstring,
+  ssl: { rejectUnauthorized: false }
+}).promise();
+
+// Kept as a no-op so existing `await db.connect()` calls in app.js still work.
 export async function connect() {
-    let cString = "mysql://" + 
-    process.env.MYSQL_USER + 
-    ":" + 
-    process.env.MYSQL_PASSWORD + 
-    "@" + 
-    process.env.MYSQL_HOST + 
-    ":" + 
-    process.env.MYSQL_PORT + 
-    "/" + 
-    process.env.MYSQL_DATABASE;
-
-    pool = mysql.createPool(
-        //cstring;
-        {
-            host: process.env.MYSQL_HOST,
-            user: process.env.MYSQL_USER,
-            password: process.env.MYSQL_PASSWORD,
-            database: process.env.MYSQL_DATABASE,
-        }
-    )
-    .promise();
+  return pool;
 }
 
 export async function getAllProjects() {
-    const [rows]=await pool.query(`SELECT * FROM projects;`);
-    return rows;
+  const [rows] = await pool.query(`SELECT * FROM projects;`);
+  return rows;
 }
-

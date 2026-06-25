@@ -2,11 +2,14 @@ import express from "express";
 import dotenv from "dotenv";
 import * as utils from "./utils/utils.js";
 dotenv.config();
+import cors from "cors";
+
 import * as db from "./utils/database.js";
 let data = ["Project 1", "Project 2", "Project 3"];
 let projects = [];
 
 const app = express();
+app.use(cors());
 const port = 3000;
 app.set("view engine", "ejs");
 app.use(express.json());
